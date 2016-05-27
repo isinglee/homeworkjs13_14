@@ -5,8 +5,43 @@
         <title>Document</title>
         <link rel="stylesheet" href="style/bootstrap.min.css">
         <link rel="stylesheet" href="style/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="style/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="js/tmpl.js"></script>
     </head>
     <body>
+        <script type="text/template" id="test_template">
+            <form>
+                <div style="text-align: center; padding: 10px;">
+                    <legend>Тест по программированию</legend>
+                </div>
+                <div style="text-align: left; padding: 10px; font-weight: bold">
+                    Выберите все правильные варианты ответов на вопросы
+                </div>
+                <ol>
+                    <% for (var i=0; i<questions.length; ++i) { %>
+                    <li>
+                        <span class="textcolor"><%=questions[i].text.replace('$', +i + 1)%></span>
+                        <ul>
+                            <% for (var j=0; j<questions[i].variants.length; ++j) { %>
+                            <li><label class="checkbox" for="checkbox_<%=i%>_<%=j%>"><input type="checkbox" id="checkbox_<%=i%>_<%=j%>"><%=questions[i].variants[j].text.replace('$', +j + 1)%></label></li>
+                            <% } %>
+                        </ul>
+                    </li>
+                    <% } %>
+                </ol>
+                <div style="text-align: center; padding: 10px;"><button class="btn btn-primary" type="submit" id="check">Проверить мои результаты</button></div>
+            </form>
+        </script>
+        <script type="text/template" id="modal_template">
+            <div class="mask"></div>
+            <div class="modal">
+                <div style="text-align: center; padding: 10px">
+                    <div class="result"><%=message%></div>
+                    <button class="btn btn-primary" type="submit" id="close"><%=button%></button>
+                </div>
+            </div>    
+        </script>
         <script src="js/script.js"></script>
     </body>
 </html>

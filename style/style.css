@@ -1,0 +1,36 @@
+.mask {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 255, 0.1);
+    z-index: 1;
+}
+.modal {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    padding: 40px;
+    background: #fff;
+    min-height: 170px;
+    min-width: 300px;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 20px;
+    font-weight: 400;
+}
+.result {
+    padding: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.textcolor {
+    color: #286090;
+    font-weight: bold;
+    font-size: 17px;
+}
